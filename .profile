@@ -53,3 +53,7 @@ export BREW_HOME="/usr/local/Cellar"
 export PIP_REQUIRE_VIRTUALENV=true
 # cache pip-installed packages to avoid re-downloading
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+# function to install packages into our global site-packages
+syspip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
