@@ -1,10 +1,4 @@
 ######################################################
-# Path configuration
-######################################################
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-######################################################
 # Prompt configuration
 ######################################################
 
@@ -30,14 +24,16 @@ function myprompt {
 }
 
 PROMPT_COMMAND=myprompt
-#export PS1='\[\e[1;1m\]\w\n\$ \[\e[0m\]'
 export CLICOLOR=1
 
 ######################################################
-# System aliases
+# System aliases and exports
 ######################################################
 
-alias ll="ls -l"
+alias ll="ls -al"
+alias psx="ps -ef"
+
+export EDITOR=sublime
 
 ######################################################
 # Homebrew
@@ -57,3 +53,11 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
+
+#########################################################
+# Path configuration
+#########################################################
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+echo ".profile PATH = " ${PATH}
