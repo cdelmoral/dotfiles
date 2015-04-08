@@ -1,3 +1,5 @@
+echo "/etc/profile = " ${PATH}
+
 ######################################################
 # Prompt configuration
 ######################################################
@@ -14,9 +16,9 @@ function myprompt {
 
    if [ "${EXITSTATUS}" -eq 0 ]
    then
-      PROMPT="${BOLD}[${GREEN}${CHECK}${OFF} "
+      PROMPT="\n${BOLD}[${GREEN}${CHECK}${OFF} "
    else
-      PROMPT="${BOLD}[${RED}${CROSS}${OFF} "
+      PROMPT="\n${BOLD}[${RED}${CROSS}${OFF} "
    fi
    PS1="${PROMPT}${BOLD}\u \w]\n\t \$${OFF} "
 
@@ -32,6 +34,7 @@ export CLICOLOR=1
 
 alias ll="ls -al"
 alias psx="ps -ef"
+alias catp="cat ${HOME}/.profile"
 
 export EDITOR=sublime
 
@@ -40,6 +43,15 @@ export EDITOR=sublime
 ######################################################
 
 export BREW_HOME="/usr/local/Cellar"
+
+alias cdbrew="cd ${BREW_HOME}; ll"
+
+######################################################
+# Tomcat
+######################################################
+
+export CATALINA_HOME="/usr/local/Cellar/tomcat/7.0.47/libexec"
+alias tomlog="tail -f ${CATALINA_HOME}/logs/catalina.out"
 
 ######################################################
 # Python's pip
@@ -54,10 +66,24 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
+# directory to hold the virtual environments
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+######################################################
+# Ruby
+######################################################
+
+eval "$(rbenv init -)"
+
 #########################################################
 # Path configuration
 #########################################################
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/Users/carlos/.virtualenvs/default/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 echo ".profile PATH = " ${PATH}
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
