@@ -36,6 +36,10 @@ alias ll="ls -al"
 alias psx="ps -ef"
 alias catp="cat ${HOME}/.profile"
 
+######################################################
+# Sublime
+######################################################
+
 alias svnmissing='svn st | grep ^! | awk '\''{print " --force "$2}'\'' | xargs svn rm'
 alias svnnew='svn st | grep ^? | awk '\''{print " --force "$2}'\'' | xargs svn add'
 
