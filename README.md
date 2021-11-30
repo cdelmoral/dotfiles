@@ -1,3 +1,3 @@
-#### My .profile file ####
+# Dotfiles
 
-This is just a repository to have a copy of my .profile configuration.
+Repository to keep history of my personal dotfiles
