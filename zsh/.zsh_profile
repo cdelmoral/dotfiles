@@ -1,0 +1,66 @@
+######################################################
+# System aliases and exports
+######################################################
+
+alias ll="ls -al"
+alias psx="ps -ef"
+alias catp="cat ${HOME}/.profile"
+alias opgi="op get item 'PLTFM Salesforce Packages Install Key' --fields password"
+export GPG_TTY=$(tty)
+export TERM="xterm-256color"
+
+
+######################################################
+# Homebrew
+######################################################
+
+export BREW_HOME="/usr/local/Cellar"
+
+alias cdbrew="cd ${BREW_HOME}; ll"
+
+######################################################
+# nvm
+######################################################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+######################################################
+# sfdx
+######################################################
+
+export SFDX_AUTOUPDATE_DISABLE=true
+
+alias dxol="sfdx force:org:list"
+alias dxdu="sfdx force:config:get defaultusername"
+
+SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup && test -f $SFDX_AC_ZSH_SETUP_PATH && source $SFDX_AC_ZSH_SETUP_PATH; # sfdx autocomplete setup
+
+######################################################
+# rbenv
+######################################################
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+######################################################
+# ZSH Theme
+######################################################
+
+BULLETTRAIN_STATUS_EXIT_SHOW=true
+BULLETTRAIN_TIME_BG=yellow
+BULLETTRAIN_TIME_FG=black
+
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  dir
+  status
+  git
+)
+
+######################################################
+# Path
+######################################################
+
+export PATH="/usr/local/sbin:$PATH"
+echo "PATH = " ${PATH}eval 
+
