@@ -62,5 +62,5 @@ BULLETTRAIN_PROMPT_ORDER=(
 ######################################################
 
 export PATH="/usr/local/sbin:$PATH"
-echo "PATH = " ${PATH}eval 
+echo "PATH = " ${PATH}
 
