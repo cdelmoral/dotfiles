@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# Creates symbolic links to the repo configuration files in ~/.config/nvim
+
 mkdir -p ~/.config/nvim/plugin
 
 for f in `find . -type file -name "*.vim"`; do
