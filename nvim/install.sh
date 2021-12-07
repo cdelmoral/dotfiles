@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Creates symbolic links to the repo configuration files in ~/.config/nvim
+# Creates symbolic links to the repo configuration files in ~/.config/nvim.
+# Note that the script must be run from nvim directory.
 
 mkdir -p ~/.config/nvim/plugin
 
