@@ -18,6 +18,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
 " Initialize plugin system
 call plug#end()            " required
 
