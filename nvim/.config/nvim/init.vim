@@ -24,8 +24,13 @@ Plug 'tpope/vim-fugitive'
 " Prettier
 Plug 'prettier/vim-prettier'
 
+" Airline
+Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
 " Initialize plugin system
 call plug#end()            " required
 
 syntax on
 colorscheme gruvbox
+
