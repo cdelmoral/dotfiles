@@ -21,6 +21,9 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
+" Prettier
+Plug 'prettier/vim-prettier'
+
 " Initialize plugin system
 call plug#end()            " required
 
