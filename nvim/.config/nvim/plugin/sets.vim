@@ -20,3 +20,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.sfdx/*
 set wildignore+=**/coverage/*
 
+augroup syntax_apex
+   autocmd!
+   autocmd BufNewFile,BufRead *.cls,*.trigger set syntax=java
+augroup END

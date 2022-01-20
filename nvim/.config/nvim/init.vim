@@ -28,9 +28,15 @@ Plug 'prettier/vim-prettier'
 Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
+" Tree Sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 " Initialize plugin system
 call plug#end()            " required
 
 syntax on
 colorscheme gruvbox
+
+lua require'nvim-treesitter.configs'.setup { ensure_installed = { "java" }, sync_install = true, highlight = { enable = true } }
 
