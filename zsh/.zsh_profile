@@ -34,6 +34,22 @@ export SFDX_AUTOUPDATE_DISABLE=true
 alias dxol="sfdx force:org:list"
 alias dxdu="sfdx force:config:get defaultusername"
 
+# Copies the scratch org login url to the clipboard
+dxopen() {
+    login_command="sfdx force:org:open -r --json"
+
+    if ! [ $# -eq 0 ]
+    then
+        login_command+=" -u $1"
+    fi
+
+    echo "Executing: $login_command"
+
+    login_url=$(eval $login_command | jq ".result.url" )
+    echo $login_url | pbcopy
+    echo "Result has been copied to the clipboard."
+}
+
 SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup && test -f $SFDX_AC_ZSH_SETUP_PATH && source $SFDX_AC_ZSH_SETUP_PATH; # sfdx autocomplete setup
 
 ######################################################
