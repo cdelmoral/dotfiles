@@ -5,7 +5,6 @@
 alias ll="ls -al"
 alias psx="ps -ef"
 alias catp="cat ${HOME}/.profile"
-alias opgi="op get item 'PLTFM Salesforce Packages Install Key' --fields password"
 export GPG_TTY=$(tty)
 export TERM="xterm-256color"
 
@@ -51,6 +50,16 @@ dxopen() {
 }
 
 SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup && test -f $SFDX_AC_ZSH_SETUP_PATH && source $SFDX_AC_ZSH_SETUP_PATH; # sfdx autocomplete setup
+
+######################################################
+# 1Password
+######################################################
+
+# Reads the PLTFM Salesforce Packages Install Key from 1Password
+oppltfm() {
+    eval $(op signin komodohealth)
+    export PLTFM_CORE_INSTALL_KEY=$(op get item 'PLTFM Salesforce Packages Install Key' --fields password)
+}
 
 ######################################################
 # rbenv
