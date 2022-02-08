@@ -44,7 +44,7 @@ dxopen() {
 
     echo "Executing: $login_command"
 
-    login_url=$(eval $login_command | jq ".result.url" )
+    login_url=$(eval $login_command | jq -r ".result.url" )
     echo $login_url | pbcopy
     echo "Result has been copied to the clipboard."
 }
