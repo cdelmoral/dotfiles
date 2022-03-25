@@ -99,3 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source $HOME/.zsh_profile
+
+# Load separate config files
+
+for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
+    source "${conf}"
+done
+unset conf
+
+# Print PATH
+echo "PATH: ${PATH}"
+

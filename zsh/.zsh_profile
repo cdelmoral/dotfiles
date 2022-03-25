@@ -93,4 +93,4 @@ BULLETTRAIN_PROMPT_ORDER=(
 ######################################################
 
 export PATH="/usr/local/sbin:$GOPATH:$PATH"
-echo "PATH = " ${PATH}
+
