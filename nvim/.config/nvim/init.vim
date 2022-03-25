@@ -32,6 +32,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
+" Cooklang
+Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
+
 " Initialize plugin system
 call plug#end()            " required
 
