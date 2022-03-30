@@ -32,6 +32,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
+Plug 'neovim/nvim-lspconfig'
+
 " Cooklang
 Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
 
@@ -42,4 +44,4 @@ syntax on
 colorscheme gruvbox
 
 lua require'nvim-treesitter.configs'.setup { ensure_installed = { "java" }, sync_install = true, highlight = { enable = true } }
-
+lua require('cdelmoral')
