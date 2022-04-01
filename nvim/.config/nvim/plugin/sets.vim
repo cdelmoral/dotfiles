@@ -19,6 +19,7 @@ set background=dark
 set wildignore+=**/node_modules/*
 set wildignore+=**/.sfdx/*
 set wildignore+=**/coverage/*
+set pumheight=10
 
 augroup syntax_apex
    autocmd!
