@@ -102,6 +102,7 @@ source $HOME/.zsh_profile
 
 # Load separate config files
 
+setopt -G
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
     source "${conf}"
 done
