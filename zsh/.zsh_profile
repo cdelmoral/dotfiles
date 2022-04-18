@@ -8,6 +8,11 @@ alias catp="cat ${HOME}/.profile"
 export GPG_TTY=$(tty)
 export TERM="xterm-256color"
 
+######################################################
+# Git
+######################################################
+
+alias git_config_remote="git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'"
 
 ######################################################
 # Homebrew
