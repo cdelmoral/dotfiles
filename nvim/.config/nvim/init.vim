@@ -51,6 +51,9 @@ Plug 'rafamadriz/friendly-snippets'
 " Cooklang
 Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
 
+" Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 " Initialize plugin system
 call plug#end()            " required
 
