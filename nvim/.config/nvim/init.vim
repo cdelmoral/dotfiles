@@ -64,3 +64,4 @@ set completeopt=menu,menuone,noselect
 
 lua require'nvim-treesitter.configs'.setup { ensure_installed = { "java" }, sync_install = true, highlight = { enable = true } }
 lua require('cdelmoral')
+

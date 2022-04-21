@@ -25,3 +25,8 @@ augroup syntax_apex
    autocmd!
    autocmd BufNewFile,BufRead *.cls,*.trigger set syntax=java
 augroup END
+
+augroup typescript_tabs
+    autocmd!
+    autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+augroup END
