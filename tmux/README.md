@@ -6,6 +6,7 @@
 - Attach existing session: `tmux a -t {session-name}`
 - Detach current session: `C-b d`
 - Select session interactively: `C-b s`
+- Kill session: `C-b :kill-session -t {session-name}`
 
 ## Manage Windows
 
