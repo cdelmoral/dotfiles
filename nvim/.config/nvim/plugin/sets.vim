@@ -31,3 +31,8 @@ augroup typescript_tabs
     autocmd!
     autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 augroup END
+
+augroup harpoon_wrap
+    autocmd!
+    autocmd FileType harpoon setlocal wrap
+augroup END
