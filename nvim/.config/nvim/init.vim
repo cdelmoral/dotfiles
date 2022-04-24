@@ -1,11 +1,3 @@
-let mapleader = " "
-
-nnoremap <leader>ft :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <C-j> :bnext<CR>
-nnoremap <C-k> :bprev<CR>
-nnoremap <C-c> :bd<CR>
-nnoremap <C-e> :Explore<CR>
-
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -53,6 +45,9 @@ Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+" Harpoon
+Plug 'ThePrimeagen/harpoon'
 
 " Initialize plugin system
 call plug#end()            " required

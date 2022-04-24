@@ -16,6 +16,7 @@ set scrolloff=8
 set nohlsearch
 set hidden
 set background=dark
+set ignorecase
 set wildignore+=**/node_modules/*
 set wildignore+=**/.sfdx/*
 set wildignore+=**/coverage/*
