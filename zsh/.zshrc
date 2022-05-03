@@ -109,5 +109,5 @@ done
 unset conf
 
 # Print PATH
-echo "PATH: ${PATH}"
-
+echo "Configured PATH:"
+echo -e "- ${PATH//:/\\n- }"
