@@ -15,4 +15,4 @@
 - Switch to last viewed window: `C-b l`
 - Select window interactively: `C-b w`
 - Bring a separate window as pane to current window: `C-b :joinp -s {session-name}:{window-name}`
-- Separate panes in current window into separate windows: `C-b :break-panes`
+- Separate panes in current window into separate windows: `C-b :break-pane`
