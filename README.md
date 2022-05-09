@@ -1,3 +1,21 @@
 # Dotfiles
 
-Repository to keep history of my personal dotfiles
+My personal configuration files for different CLI tools.
+
+## Requirements
+
+### zsh
+
+TODO
+
+### nvim
+
+TODO
+
+### tmux
+
+TODO
+
+### Cheat
+
+`brew install cheat`
