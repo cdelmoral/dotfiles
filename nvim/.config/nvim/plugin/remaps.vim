@@ -54,3 +54,7 @@ nnoremap <leader>hk <cmd>lua require('harpoon.ui').nav_prev()<CR>
 
 nnoremap <leader>gl :Git log %<CR>
 
+" Git Status
+
+nnoremap <leader>gs :Git<CR>
+
