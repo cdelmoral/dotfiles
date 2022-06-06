@@ -12,6 +12,11 @@ TODO
 
 TODO
 
+#### LSP Servers
+
+- Typescript: TODO
+- JSON/YAML: `npm i -g spectral-language-server`
+
 ### tmux
 
 TODO
