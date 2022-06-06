@@ -15,7 +15,7 @@ TODO
 #### LSP Servers
 
 - Typescript: TODO
-- JSON/YAML: `npm i -g spectral-language-server`
+- JSON/YAML: `yarn global add typescript-language-server`
 
 ### tmux
 
