@@ -12,10 +12,13 @@ let mapleader = " "
 nnoremap <leader>ft :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 " Close buffer
-nnoremap <leader>c :bd<CR>
+nnoremap <leader>bd :bd<CR>
 
 " Open newtr
 nnoremap <leader>e :Explore<CR>
+
+" Operations with clipboard register
+nnoremap <leader>c "+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " Telesecope re-maps
