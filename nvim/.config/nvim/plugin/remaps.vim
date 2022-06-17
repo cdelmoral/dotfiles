@@ -20,6 +20,9 @@ nnoremap <leader>e :Explore<CR>
 " Operations with clipboard register
 nnoremap <leader>c "+
 
+" Change window
+nnoremap <leader>w <C-w>w
+
 """"""""""""""""""""""""""""""""""""""""""""""
 " Telesecope re-maps
 """"""""""""""""""""""""""""""""""""""""""""""
