@@ -22,8 +22,9 @@ set wildignore+=**/.sfdx/*
 set wildignore+=**/coverage/*
 set pumheight=10
 
-augroup syntax_apex
+augroup apexcode
    autocmd!
+   autocmd BufNewFile,BufRead *.cls,*.trigger set filetype=apexcode
    autocmd BufNewFile,BufRead *.cls,*.trigger set syntax=java
 augroup END
 
