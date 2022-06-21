@@ -14,8 +14,8 @@ TODO
 
 #### LSP Servers
 
-- Typescript: TODO
-- JSON/YAML: `yarn global add typescript-language-server`
+- Typescript: `yarn global add typescript-language-server`
+- JSON/YAML: `yarn global add @stoplight/spectral-cli`
 
 ### tmux
 

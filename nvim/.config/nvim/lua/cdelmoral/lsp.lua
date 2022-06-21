@@ -1,6 +1,7 @@
 -- Setup nvim-cmp
 local cmp = require'cmp'
 local lspkind = require('lspkind')
+local lspconfig = require('lspconfig');
 local source_mapping = {
     buffer = '[buf]',
     nvim_lsp = '[LSP]',
@@ -24,12 +25,11 @@ cmp.setup({
       c = cmp.mapping.close(),
     }),
   },
-  sources = cmp.config.sources({
+  sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  }, {
-    { name = 'buffer' },
-  }),
+    { name = 'buffer', keyword_length = 5 },
+  },
   formatting = {
     format = lspkind.cmp_format({
         menu = source_mapping,
@@ -76,7 +76,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 local servers = { 'tsserver', 'spectral' }
 
 for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     flags = {
       -- This will be the default in neovim 0.7+
@@ -85,24 +85,4 @@ for _, lsp in pairs(servers) do
     capabilities = capabilities,
   }
 end
-
-local snippets_paths = function()
-	local plugins = { 'friendly-snippets' }
-	local paths = {}
-	local path
-	local root_path = vim.env.HOME .. '/.vim/plugged/'
-	for _, plug in ipairs(plugins) do
-		path = root_path .. plug
-		if vim.fn.isdirectory(path) ~= 0 then
-			table.insert(paths, path)
-		end
-	end
-	return paths
-end
-
-require('luasnip.loaders.from_vscode').lazy_load({
-	paths = snippets_paths(),
-	include = nil, -- Load all languages
-	exclude = {},
-})
 
