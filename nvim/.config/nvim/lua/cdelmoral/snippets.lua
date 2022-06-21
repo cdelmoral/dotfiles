@@ -37,14 +37,11 @@ vim.keymap.set({'i', 's'}, '<c-j>', function()
 end, { silent = true })
 
 local s = luasnip.s
-
 local fmt = require('luasnip.extras.fmt').fmt
-
 local i = luasnip.insert_node
-
 local rep = require('luasnip.extras').rep
 
-luasnip.add_snippets('st', {
+luasnip.add_snippets('apexcode', {
         s('ld', fmt('Logger.debug(\'{} =>\', {});', { i(1, 'variable'), rep(1) })),
         s('sa', fmt('System.assert({});', { i(1, 'isTrue') })),
         s('sae', fmt('System.assertEquals({}, {});', { i(1, 'expected'), i(2, 'actual') })),
