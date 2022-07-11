@@ -23,6 +23,9 @@ nnoremap <leader>c "+
 " Change window
 nnoremap <leader>w <C-w>w
 
+" Disable search highlight until next search
+nnoremap <leader>/ :noh<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""
 " Telesecope re-maps
 """"""""""""""""""""""""""""""""""""""""""""""

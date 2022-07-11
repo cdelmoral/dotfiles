@@ -12,8 +12,8 @@ set nobackup
 set undodir=~/.vim/undodir
 " set undofile
 set incsearch
+set hlsearch
 set scrolloff=8
-set nohlsearch
 set hidden
 set background=dark
 set ignorecase
