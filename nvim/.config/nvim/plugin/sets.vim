@@ -21,6 +21,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.sfdx/*
 set wildignore+=**/coverage/*
 set pumheight=10
+set cc=120
 
 augroup apexcode
    autocmd!
