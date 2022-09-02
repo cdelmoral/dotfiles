@@ -1,0 +1,34 @@
+---
+tags: [ nvim, vim ]
+---
+
+# LSP custom remaps
+
+## Auto-complete
+<C-n>      next item
+<C-p>      previous item
+<C-y>      confirm
+<C-e>      close
+<C-space>  complete
+<C-b>      scroll down docs
+<C-f>      scroll up docs
+
+## Go to functions
+gD         go to declaration
+gd         go to definition
+gr         go to references
+gi         go to implementation
+
+## Diagnostics
+<space>q   set diagnostics in local list
+
+## Float
+K          display info
+<C-k>      display signature help
+<space>e   diagnostics
+
+## Actions
+<space>rn  rename
+<space>ca  code action
+<space>f   formatting
+
