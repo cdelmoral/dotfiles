@@ -32,3 +32,6 @@ K          display info
 <space>ca  code action
 <space>f   formatting
 
+## Snippets
+<C-j>      jump backwards
+<C-k>      jump forward or expand
