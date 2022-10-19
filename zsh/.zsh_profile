@@ -4,7 +4,7 @@
 
 alias ll="ls -al"
 alias psx="ps -ef"
-alias catp="cat ${HOME}/.profile"
+alias catp="cat ${HOME}/.zsh_profile"
 export GPG_TTY=$(tty)
 export TERM="xterm-256color"
 
