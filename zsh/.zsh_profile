@@ -57,6 +57,12 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 
 ######################################################
+# Terminal Utilities
+######################################################
+
+alias nf="osascript -e 'display notification \"Terminal command is done\" with title \"Done\"'"
+
+######################################################
 # Path
 ######################################################
 
