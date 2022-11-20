@@ -33,7 +33,13 @@ export NVM_DIR="$HOME/.nvm"
 # Go
 ######################################################
 
-export GOPATH="/Users/cdelmoral/go/bin"
+export GOPATH="$HOME/go/bin"
+
+######################################################
+# Go
+######################################################
+
+export RUSTPATH="$HOME/.cargo/bin"
 
 ######################################################
 # rbenv
@@ -66,5 +72,5 @@ alias nf="osascript -e 'display notification \"Terminal command is done\" with t
 # Path
 ######################################################
 
-export PATH="/usr/local/sbin:$GOPATH:$PATH"
+export PATH="/usr/local/sbin:$RUSTPATH:$GOPATH:$PATH"
 
