@@ -15,13 +15,14 @@ tmux joinp -s :<window-name> -h
 tmux kill-session -t <session-name>
 
 # Key bindings
-d  Detach current session.
-s  Select session interactively.
-c  Create new window in current session.
-,  Rename current window.
-l  Switch to last viewed window.
-;  Switch to last viewed pane.
-w  Select window interactively.
-%  Split the current pane into two, left and right.
-!  Break the current pane out of the window.
-o  Select the next pane in the current window.
+d        Detach current session.
+s        Select session interactively.
+c        Create new window in current session.
+,        Rename current window.
+l        Switch to last viewed window.
+;        Switch to last viewed pane.
+w        Select window interactively.
+%        Split the current pane into two, left and right.
+!        Break the current pane out of the window.
+o        Select the next pane in the current window.
+[space]  Cycle through available layouts.
