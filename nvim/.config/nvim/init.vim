@@ -16,9 +16,8 @@ Plug 'tpope/vim-fugitive'
 " Prettier
 Plug 'prettier/vim-prettier'
 
-" Airline
-Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+" lualine
+Plug 'nvim-lualine/lualine.nvim'
 
 " Tree Sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
