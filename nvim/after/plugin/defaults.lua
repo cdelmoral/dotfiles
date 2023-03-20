@@ -1,6 +1,6 @@
 vim.opt.relativenumber = true
 
-vim.keymap.set('n', '<leader>x', ':Explore', { desc = 'Open the local-directory browser' })
+vim.keymap.set('n', '<leader>x', ':Explore<CR>', { desc = 'Open the local-directory browser' })
 
 local augroup = vim.api.nvim_create_augroup
 
