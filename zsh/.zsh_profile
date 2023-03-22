@@ -28,6 +28,7 @@ alias cdbrew="cd ${BREW_HOME}; ll"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ######################################################
 # Go
@@ -36,7 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/go/bin"
 
 ######################################################
-# Go
+# Rust
 ######################################################
 
 export RUSTPATH="$HOME/.cargo/bin"
@@ -72,5 +73,15 @@ alias nf="osascript -e 'display notification \"Terminal command is done\" with t
 # Path
 ######################################################
 
-export PATH="/usr/local/sbin:$RUSTPATH:$GOPATH:$PATH"
+function addToPATH {
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+  esac
+}
+
+
+addToPATH /usr/local/sbin
+addToPATH $RUSTPATH
+addToPATH $GOPATH
 

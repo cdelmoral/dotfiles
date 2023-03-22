@@ -30,7 +30,10 @@ dxopen() {
     echo "Result has been copied to the clipboard."
 }
 
-SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup && test -f $SFDX_AC_ZSH_SETUP_PATH && source $SFDX_AC_ZSH_SETUP_PATH; # sfdx autocomplete setup
+# sfdx autocomplete setup
+SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup
+test -f $SFDX_AC_ZSH_SETUP_PATH
+source $SFDX_AC_ZSH_SETUP_PATH;
 
 ######################################################
 # 1Password
@@ -47,14 +50,13 @@ oppltfm() {
 ######################################################
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 if [ -n "$PS1" -a -n "$BASH_VERSION" ]; then source ~/.bashrc; fi
 eval "$(pyenv init -)"
 
 ######################################################
-# CumulusCI
+# PATH
 ######################################################
 
-export PATH="/Users/cdelmoral/.local/bin:$GOPATH:$PATH"
+addToPATH $PYENV_ROOT/bin
 
