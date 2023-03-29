@@ -1,4 +1,17 @@
 ######################################################
+# Path
+######################################################
+
+function addToPATH {
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+  esac
+}
+
+addToPATH /usr/local/sbin
+
+######################################################
 # System aliases and exports
 ######################################################
 
@@ -35,18 +48,20 @@ export NVM_DIR="$HOME/.nvm"
 ######################################################
 
 export GOPATH="$HOME/go/bin"
+addToPATH $GOPATH
 
 ######################################################
 # Rust
 ######################################################
 
 export RUSTPATH="$HOME/.cargo/bin"
+addToPATH $RUSTPATH
 
 ######################################################
 # rbenv
 ######################################################
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ######################################################
 # ZSH Theme
@@ -70,18 +85,10 @@ BULLETTRAIN_PROMPT_ORDER=(
 alias nf="osascript -e 'display notification \"Terminal command is done\" with title \"Done\"'"
 
 ######################################################
-# Path
+# Python
 ######################################################
 
-function addToPATH {
-  case ":$PATH:" in
-    *":$1:"*) :;; # already there
-    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
-  esac
-}
-
-
-addToPATH /usr/local/sbin
-addToPATH $RUSTPATH
-addToPATH $GOPATH
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || addToPATH $PYENV_ROOT/bin
+eval "$(pyenv init -)"
 

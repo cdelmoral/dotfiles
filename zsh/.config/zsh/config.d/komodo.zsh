@@ -50,13 +50,6 @@ oppltfm() {
 ######################################################
 
 export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init --path)"
-if [ -n "$PS1" -a -n "$BASH_VERSION" ]; then source ~/.bashrc; fi
+command -v pyenv >/dev/null || addToPATH $PYENV_ROOT/bin
 eval "$(pyenv init -)"
-
-######################################################
-# PATH
-######################################################
-
-addToPATH $PYENV_ROOT/bin
 
