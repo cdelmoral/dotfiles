@@ -11,8 +11,8 @@ alias catk="cat ${HOME}/.config/zsh/config.d/komodo.zsh"
 
 export SFDX_AUTOUPDATE_DISABLE=true
 
-alias dxol="sfdx force:org:list"
-alias dxdu="sfdx force:config:get defaultusername"
+alias dxol="sfdx org list"
+alias dxdu="sfdx config get target-org"
 
 # Copies the scratch org login url to the clipboard
 dxopen() {
