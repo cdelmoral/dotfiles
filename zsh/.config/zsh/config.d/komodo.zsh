@@ -9,7 +9,6 @@ alias catk="cat ${HOME}/.config/zsh/config.d/komodo.zsh"
 # sfdx
 ######################################################
 
-export SFDX_AUTOUPDATE_DISABLE=true
 
 alias dxol="sfdx org list"
 alias dxdu="sfdx config get target-org"
@@ -31,9 +30,7 @@ dxopen() {
 }
 
 # sfdx autocomplete setup
-SFDX_AC_ZSH_SETUP_PATH=/Users/cdelmoral/Library/Caches/sfdx/autocomplete/zsh_setup
-test -f $SFDX_AC_ZSH_SETUP_PATH
-source $SFDX_AC_ZSH_SETUP_PATH;
+eval $(sfdx autocomplete script zsh)
 
 ######################################################
 # 1Password
