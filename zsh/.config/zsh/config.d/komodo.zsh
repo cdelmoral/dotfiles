@@ -29,8 +29,11 @@ dxopen() {
     echo "Result has been copied to the clipboard."
 }
 
-# sfdx autocomplete setup
-eval $(sfdx autocomplete script zsh)
+# Define function to initialize sfdx autocomplete
+# Do not call by default to avoid unnecessary startup time
+sfdx_autocomplete() {
+    eval $(sfdx autocomplete script zsh)
+}
 
 ######################################################
 # 1Password
@@ -39,7 +42,7 @@ eval $(sfdx autocomplete script zsh)
 # Reads the PLTFM Salesforce Packages Install Key from 1Password
 oppltfm() {
     eval $(op signin komodohealth)
-    export PLTFM_CORE_INSTALL_KEY=$(op get item 'PLTFM Salesforce Packages Install Key' --fields password)
+    export PLTFM_INSTALL_KEY=$(op get item 'PLTFM Salesforce Packages Install Key' --fields password)
 }
 
 ######################################################
