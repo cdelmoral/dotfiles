@@ -53,3 +53,28 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || addToPATH $PYENV_ROOT/bin
 eval "$(pyenv init -)"
 
+######################################################
+# Docker
+######################################################
+
+addToPATH $HOME/.docker/bin
+
+######################################################
+# Terraform
+######################################################
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+######################################################
+# OKTA AWS CLI
+######################################################
+
+if [[ -f "$HOME/.okta/bash_functions" ]]; then
+    . "$HOME/.okta/bash_functions"
+fi
+
+if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
+    addToPATH $HOME/.okta/bin
+fi
+
