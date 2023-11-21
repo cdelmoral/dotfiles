@@ -2,7 +2,6 @@
 # System aliases and exports
 ######################################################
 
-alias cdcore="cd ~/Projects/FNDS/P-PLTFM-Core"
 alias catk="cat ${HOME}/.config/zsh/config.d/komodo.zsh"
 
 ######################################################
