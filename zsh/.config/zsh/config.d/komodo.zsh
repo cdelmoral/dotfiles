@@ -10,16 +10,16 @@ alias catk="cat ${HOME}/.config/zsh/config.d/komodo.zsh"
 ######################################################
 
 
-alias dxol="sfdx org list"
-alias dxdu="sfdx config get target-org"
+alias dxol="sf org list"
+alias dxdu="sf config get target-org"
 
 # Copies the scratch org login url to the clipboard
-dxopen() {
-    login_command="sfdx force:org:open -r --json"
+sf_org_open_copy() {
+    login_command="sf org open -r --json"
 
     if ! [ $# -eq 0 ]
     then
-        login_command+=" -u $1"
+        login_command+=" -o $1"
     fi
 
     echo "Executing: $login_command"
