@@ -18,7 +18,9 @@ addToPATH /usr/local/sbin
 alias ll="ls -al"
 alias psx="ps -ef"
 alias catp="cat ${HOME}/.zsh_profile"
-export GPG_TTY=$(tty)
+bindkey -s ^f "tmux-sessionizer\n"
+
+addToPATH ${HOME}/.local/scripts
 
 ######################################################
 # Git
@@ -39,28 +41,17 @@ alias cdbrew="cd ${BREW_HOME}; ll"
 ######################################################
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 ######################################################
 # Go
 ######################################################
 
-export GOPATH="$HOME/go/bin"
-addToPATH $GOPATH
-
-######################################################
-# Rust
-######################################################
-
-export RUSTPATH="$HOME/.cargo/bin"
-addToPATH $RUSTPATH
-
-######################################################
-# rbenv
-######################################################
-
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export GOPATH="$HOME/go"
+addToPATH "$GOPATH/bin"
 
 ######################################################
 # ZSH Theme
@@ -76,18 +67,4 @@ BULLETTRAIN_PROMPT_ORDER=(
   status
   git
 )
-
-######################################################
-# Terminal Utilities
-######################################################
-
-alias nf="osascript -e 'display notification \"Terminal command is done\" with title \"Done\"'"
-
-######################################################
-# Python
-######################################################
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || addToPATH $PYENV_ROOT/bin
-eval "$(pyenv init -)"
 
