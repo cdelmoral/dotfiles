@@ -3,6 +3,6 @@
 stow --restow bin
 stow --restow zsh
 stow --restow tmux
+stow --restow nvim
 
-# TODO: re-organize nvim to not have submodules
 # TODO: do we still need cheat?
