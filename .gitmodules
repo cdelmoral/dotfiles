@@ -1,6 +1,0 @@
-[submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
-	url = https://github.com/cdelmoral/tpm.git
-[submodule "nvim/kickstart"]
-	path = nvim/kickstart
-	url = https://github.com/cdelmoral/kickstart.nvim.git
