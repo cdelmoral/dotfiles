@@ -15,7 +15,7 @@ addToPATH /usr/local/sbin
 # System aliases and exports
 ######################################################
 
-alias ll="ls -al"
+alias ll="ls -alh"
 alias psx="ps -ef"
 alias catp="cat ${HOME}/.zsh_profile"
 bindkey -s ^f "tmux-sessionizer\n"
