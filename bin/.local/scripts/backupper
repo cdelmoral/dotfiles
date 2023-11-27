@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# A script to perform incremental backups using rsync
+
+set -e
+set -u
+
+# The directory to be backed up
+SOURCE_DIR=""
+
+# The directory to copy the back up to
+BACKUP_DIR=""
+
+# The remote containing the backup directory
+REMOTE_NAME=""
+
+readonly DATETIME="$(date '+%Y-%m-%d_%H%M%S')"
+
+# Parse provided options
+while getopts ":hs:t:r:" opt; do
+	case ${opt} in
+	h)
+		# usage
+		exit 0
+		;;
+	: | \?)
+		# usage
+		exit 1
+		;;
+	s)
+		SOURCE_DIR=${OPTARG}
+		;;
+	t)
+		BACKUP_DIR=${OPTARG}
+		;;
+	r)
+		REMOTE_NAME=${OPTARG}
+		;;
+	esac
+done
+
+readonly BACKUP_PATH="${BACKUP_DIR}/${DATETIME}"
+readonly LATEST_LINK="${BACKUP_DIR}/latest"
+
+ssh ${REMOTE_NAME} "mkdir -p ${BACKUP_DIR}"
+
+rsync \
+	-avh \
+	--progress \
+	--compress \
+	--delete "${SOURCE_DIR}/" \
+	--link-dest "${LATEST_LINK}" \
+	--delete-excluded \
+	--exclude=".DS_Store" \
+	--exclude="node_modules/" \
+	"${REMOTE_NAME}:${BACKUP_PATH}"
+
+ssh ${REMOTE_NAME} "rm ${LATEST_LINK}"
+ssh ${REMOTE_NAME} "ln -s ${BACKUP_PATH} ${LATEST_LINK}"

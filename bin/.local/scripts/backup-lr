@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+LOGFILE="${HOME}/.backup-lr.log"
+exec 3>&1 1>"${LOGFILE}" 2>&1
+trap "echo 'ERROR: an error occurred during execution, check ${LOGFILE} for details.' >&3" ERR
+
+set -x
+
+log() {
+	echo "[$(date)]" "$@"
+}
+
+log "backing up lighroom catalog" >&3
+backupper \
+	-s ${HOME}/Pictures/Lightroom \
+	-t /home/cdelmoral/backup/lr-catalog \
+	-r cdelmoral@rivendell
+
+log "backing up lighroom collection" >&3
+/Users/cdelmoral/Projects/backups/backup-util.sh \
+	-s /Volumes/Lightroom/Lightroom \
+	-t /home/cdelmoral/backup/lr-collection \
+	-r cdelmoral@rivendell

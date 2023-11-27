@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+LOGFILE="${HOME}/.backup-files.log"
+exec 3>&1 1>"${LOGFILE}" 2>&1
+trap "echo 'ERROR: an error occurred during execution, check ${LOGFILE} for details.' >&3" ERR
+
+set -x
+
+log() {
+	echo "[$(date)]" "$@"
+}
+
+log "backing up google drive files" >&3
+backupper \
+	-s ${HOME}/Google\ Drive \
+	-t /home/cdelmoral/backup/google \
+	-r cdelmoral@rivendell
+
+log "backing up projects" >&3
+backupper \
+	-s ${HOME}/projects \
+	-t /home/cdelmoral/backup/projects \
+	-r cdelmoral@rivendell
