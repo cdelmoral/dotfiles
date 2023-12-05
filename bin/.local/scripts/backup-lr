@@ -13,11 +13,11 @@ log() {
 log "backing up lighroom catalog" >&3
 backupper \
 	-s ${HOME}/Pictures/Lightroom \
-	-t /home/cdelmoral/backup/lr-catalog \
+	-t /media/backup/lr-catalog \
 	-r cdelmoral@rivendell
 
 log "backing up lighroom collection" >&3
-/Users/cdelmoral/Projects/backups/backup-util.sh \
+backupper \
 	-s /Volumes/Lightroom/Lightroom \
-	-t /home/cdelmoral/backup/lr-collection \
+	-t /media/backup/lr-collection \
 	-r cdelmoral@rivendell

@@ -55,5 +55,5 @@ rsync \
 	--exclude="node_modules/" \
 	"${REMOTE_NAME}:${BACKUP_PATH}"
 
-ssh ${REMOTE_NAME} "rm ${LATEST_LINK}"
+ssh ${REMOTE_NAME} "rm -f ${LATEST_LINK}"
 ssh ${REMOTE_NAME} "ln -s ${BACKUP_PATH} ${LATEST_LINK}"

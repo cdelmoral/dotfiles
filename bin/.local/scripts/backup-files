@@ -13,11 +13,11 @@ log() {
 log "backing up google drive files" >&3
 backupper \
 	-s ${HOME}/Google\ Drive \
-	-t /home/cdelmoral/backup/google \
+	-t /media/backup/google \
 	-r cdelmoral@rivendell
 
 log "backing up projects" >&3
 backupper \
 	-s ${HOME}/projects \
-	-t /home/cdelmoral/backup/projects \
+	-t /media/backup/projects \
 	-r cdelmoral@rivendell
