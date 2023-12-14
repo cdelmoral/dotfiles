@@ -4,5 +4,3 @@ stow --restow bin
 stow --restow zsh
 stow --restow tmux
 stow --restow nvim
-
-# TODO: do we still need cheat?
