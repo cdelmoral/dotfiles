@@ -9,7 +9,7 @@ fi
 
 read -p "Query: " query
 
-if echo "$languages" | grep -qs $selected; then
+if cat ~/.local/scripts/cht.sh-languages | grep -qs $selected; then
 	bash -c "curl -s cht.sh/$selected/$(echo "$query" | tr " " "+") | less"
 else
 	bash -c "curl -s cht.sh/$selected~$query | less"
