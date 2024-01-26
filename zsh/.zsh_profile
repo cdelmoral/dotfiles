@@ -60,6 +60,9 @@ addToPATH "$GOPATH/bin"
 export JAVA_HOME="$HOME/.java/home"
 addToPATH "$JAVA_HOME/bin"
 
+export MAVEN_HOME="$HOME/.maven/home"
+addToPATH "$MAVEN_HOME/bin"
+
 ######################################################
 # ZSH Theme
 ######################################################
