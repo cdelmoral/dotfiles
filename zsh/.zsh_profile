@@ -78,3 +78,4 @@ BULLETTRAIN_PROMPT_ORDER=(
   git
 )
 
+alias zsh_aws="source zsh_add_to_prompt aws"

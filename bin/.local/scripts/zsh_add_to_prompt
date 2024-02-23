@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function addToPrompt {
+  for i in "${BULLETTRAIN_PROMPT_ORDER[@]}"; do
+    if [[ $i == $1 ]]; then
+      return
+    fi
+  done
+
+  BULLETTRAIN_PROMPT_ORDER+=($1)
+}
+
+addToPrompt $1
+
