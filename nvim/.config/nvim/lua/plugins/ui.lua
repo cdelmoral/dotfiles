@@ -48,7 +48,14 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" },
+        lualine_b = {
+          { "branch" },
+          {
+            require("salesforcedx").get_default_target_org,
+            cond = require("salesforcedx").is_salesforce_project_directory,
+            icon = { "󰅟", align = "left", color = { fg = "cyan" } },
+          },
+        },
         lualine_c = {
           {
             "diagnostics",
@@ -81,10 +88,6 @@ return {
         },
 
         lualine_x = {
-          {
-            require("noice").api.status.message.get_hl,
-            cond = require("noice").api.status.message.has,
-          },
           { "filetype", icon_only = false, padding = { left = 1, right = 1 } },
           { clients_lsp },
           { formatters },
