@@ -24,9 +24,9 @@ return {
       },
     },
     keys = {
-      { "<leader><space>", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      { "<leader>ff", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      { "<leader>fF", Util.telescope("files"), desc = "Find Files (root dir)" },
+      { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (root dir)" },
       {
         "<leader>sg",
         function()
@@ -34,7 +34,7 @@ return {
         end,
         desc = "Live Grep Args",
       },
-      { "<leader>sG", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+      { "<leader>sG", LazyVim.pick("live_grep"), desc = "Grep (root dir)" },
     },
   },
 }
