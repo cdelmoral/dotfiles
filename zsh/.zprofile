@@ -32,9 +32,15 @@ alias git_config_remote="git config remote.origin.fetch '+refs/heads/*:refs/remo
 # Homebrew
 ######################################################
 
-export BREW_HOME="/usr/local/Cellar"
-
-alias cdbrew="cd ${BREW_HOME}; ll"
+UNAME_MACHINE="$(/usr/bin/uname -m)"
+if [[ "${UNAME_MACHINE}" == "arm64" ]]
+then
+  # On ARM macOS, this script installs to /opt/homebrew only
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  # On Intel macOS, this script installs to /usr/local only
+  eval "$(/user/local/bin/brew shellenv)"
+fi
 
 ######################################################
 # nvm
@@ -79,3 +85,16 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 
 alias zsh_aws="source zsh_add_to_prompt aws"
+
+######################################################
+# Salesforce
+######################################################
+
+export SF_SOURCE_TRACKING_BATCH_SIZE=8000
+
+######################################################
+# Python
+######################################################
+
+addToPATH "$(brew --prefix python)/libexec/bin"
+addToPATH "$HOME/.local/bin"
