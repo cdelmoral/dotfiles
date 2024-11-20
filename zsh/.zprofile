@@ -94,25 +94,7 @@ export SF_SOURCE_TRACKING_BATCH_SIZE=8000
 export SF_NEW_VERSION_CHECK_FREQ=1
 export SF_NEW_VERSION_CHECK_FREQ_UNIT=days
 
-sfac() {
-    eval $(sf autocomplete script zsh)
-}
-
-# Copies the scratch org login url to the clipboard
-sfoor() {
-    login_command="sf org open -r --json"
-
-    if ! [ $# -eq 0 ]
-    then
-        login_command+=" -o $1"
-    fi
-
-    echo "Running: $login_command"
-
-    login_url=$(eval $login_command | jq -r ".result.url" )
-    echo $login_url | pbcopy
-    echo "Login URL has been copied to the clipboard."
-}
+alias sfac="$(sf autocomplete script zsh)"
 
 ######################################################
 # Python

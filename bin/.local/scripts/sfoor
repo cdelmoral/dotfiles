@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Copies the scratch org login url to the clipboard
+
+login_command="sf org open -r --json"
+
+if ! [ $# -eq 0 ]; then
+    login_command+=" -o $1"
+fi
+
+echo "Running: $login_command"
+
+command_output=$(eval "$login_command")
+
+command_status=$(echo "$command_output" | jq -r ".status")
+
+if [ "$command_status" -eq 0 ]; then
+    login_url=$(echo "$command_output" | jq -r ".result.url")
+    echo "$login_url" | pbcopy
+    echo "Login URL has been copied to the clipboard."
+else
+    error_message=$(echo "$command_output" | jq -r ".message")
+    echo "$error_message"
+    exit 1
+fi
