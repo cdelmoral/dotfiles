@@ -84,7 +84,7 @@ return {
               end
             end,
           },
-          { "filename" },
+          { "filename", path = 1 },
         },
 
         lualine_x = {
