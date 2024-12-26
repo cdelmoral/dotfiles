@@ -100,5 +100,7 @@ alias sfac="$(sf autocomplete script zsh)"
 # Python
 ######################################################
 
-addToPATH "$(brew --prefix python)/libexec/bin"
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 addToPATH "$HOME/.local/bin"
