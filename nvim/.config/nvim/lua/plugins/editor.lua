@@ -23,6 +23,9 @@ return {
         end,
       },
     },
+    opts = {
+      defaults = { layout_strategy = "vertical" },
+    },
     keys = {
       { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
