@@ -50,11 +50,12 @@ return {
           disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
-          always_show_tabline = true,
         },
-        tabline = {
-          lualine_c = { { "filename", path = 1 } },
-          lualine_z = { "tabs" },
+        winbar = {
+          lualine_b = { { "filetype", icon_only = true }, { "filename", path = 1 } },
+        },
+        inactive_winbar = {
+          lualine_c = { { "filetype", icon_only = true }, { "filename", path = 1 } },
         },
         sections = {
           lualine_a = { "mode" },
