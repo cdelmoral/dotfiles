@@ -55,6 +55,7 @@ return {
       view_options = {
         show_hidden = true,
       },
+      constrain_cursor = "name",
     },
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
   },
