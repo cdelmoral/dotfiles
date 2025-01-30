@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Ensure an org alias is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <salesforce_org_alias>"
+    exit 1
+fi
+
+ORG_ALIAS=$1
+
+# Query all users in the org and store them in a variable
+USER_LIST=$(sf data query -q "SELECT Id, Name FROM User" -o "$ORG_ALIAS" --json)
+
+# Check for errors in the query
+if [ $? -ne 0 ]; then
+    echo "Failed to retrieve users. Check your Salesforce CLI connection."
+    exit 1
+fi
+
+# Use fzf to select a user
+SELECTED_USER=$(echo "$USER_LIST" | jq -r '.result.records[] | "\(.Id) \(.Name)"' | fzf)
+
+# Check if a user was selected
+if [ -z "$SELECTED_USER" ]; then
+    echo "No user selected. Exiting."
+    exit 1
+fi
+
+# Extract User Id from the selected entry
+USER_ID=$(echo "$SELECTED_USER" | awk '{print $1}')
+
+# Query all DebugLevel records
+DEBUG_LEVEL_LIST=$(sf data query -q "SELECT Id, DeveloperName FROM DebugLevel" -o "$ORG_ALIAS" --json --use-tooling-api)
+
+# Check for errors in the query
+if [ $? -ne 0 ]; then
+    echo "Failed to retrieve DebugLevels. Check your Salesforce CLI connection."
+    exit 1
+fi
+
+# Use fzf to select a DebugLevel
+SELECTED_DEBUG_LEVEL=$(echo "$DEBUG_LEVEL_LIST" | jq -r '.result.records[] | "\(.Id) \(.DeveloperName)"' | fzf)
+
+# Check if a DebugLevel was selected
+if [ -z "$SELECTED_DEBUG_LEVEL" ]; then
+    echo "No DebugLevel selected. Exiting."
+    exit 1
+fi
+
+# Extract DebugLevel Id from the selected entry
+DEBUG_LEVEL_ID=$(echo "$SELECTED_DEBUG_LEVEL" | awk '{print $1}')
+
+# Create a TraceFlag for the selected user
+EXPIRATION_DATE=$(date -u -v+30M +"%Y-%m-%dT%H:%M:%SZ")
+TRACE_FLAG_RESULT=$(sf data create record -s TraceFlag -v "LogType=DEVELOPER_LOG ExpirationDate=$EXPIRATION_DATE TracedEntityId=$USER_ID DebugLevelId=$DEBUG_LEVEL_ID" -o "$ORG_ALIAS" --json --use-tooling-api)
+
+# Check if TraceFlag was created successfully
+if echo "$TRACE_FLAG_RESULT" | jq -e '.result.Id' >/dev/null; then
+    echo "TraceFlag created successfully for user: $SELECTED_USER with DebugLevel: $SELECTED_DEBUG_LEVEL"
+else
+    echo "Failed to create TraceFlag. Response: $TRACE_FLAG_RESULT"
+    exit 1
+fi
