@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Get all local branches except the current one
+branches=$(git branch --format "%(refname:short)" | grep -v "$(git rev-parse --abbrev-ref HEAD)")
+
+if [ -z "$branches" ]; then
+    echo "No local branches to delete."
+    exit 0
+fi
+
+# Iterate through branches
+for branch in $branches; do
+    read -p "Delete branch '$branch'? (y/n): " choice
+    case "$choice" in
+    [Yy]*)
+        git branch -D "$branch"
+        echo "Deleted branch '$branch'"
+        ;;
+    *)
+        echo "Skipped branch '$branch'"
+        ;;
+    esac
+done
