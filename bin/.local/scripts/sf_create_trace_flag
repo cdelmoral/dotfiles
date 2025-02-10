@@ -52,7 +52,8 @@ DEBUG_LEVEL_ID=$(echo "$SELECTED_DEBUG_LEVEL" | awk '{print $1}')
 
 # Create a TraceFlag for the selected user
 EXPIRATION_DATE=$(date -u -v+30M +"%Y-%m-%dT%H:%M:%SZ")
-TRACE_FLAG_RESULT=$(sf data create record -s TraceFlag -v "LogType=DEVELOPER_LOG ExpirationDate=$EXPIRATION_DATE TracedEntityId=$USER_ID DebugLevelId=$DEBUG_LEVEL_ID" -o "$ORG_ALIAS" --json --use-tooling-api)
+START_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+TRACE_FLAG_RESULT=$(sf data create record -s TraceFlag -v "LogType=DEVELOPER_LOG StartDate=$START_DATE ExpirationDate=$EXPIRATION_DATE TracedEntityId=$USER_ID DebugLevelId=$DEBUG_LEVEL_ID" -o "$ORG_ALIAS" --json --use-tooling-api)
 
 # Check if TraceFlag was created successfully
 if echo "$TRACE_FLAG_RESULT" | jq -e '.result.Id' >/dev/null; then
