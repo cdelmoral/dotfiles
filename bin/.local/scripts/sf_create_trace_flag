@@ -56,7 +56,7 @@ START_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 TRACE_FLAG_RESULT=$(sf data create record -s TraceFlag -v "LogType=DEVELOPER_LOG StartDate=$START_DATE ExpirationDate=$EXPIRATION_DATE TracedEntityId=$USER_ID DebugLevelId=$DEBUG_LEVEL_ID" -o "$ORG_ALIAS" --json --use-tooling-api)
 
 # Check if TraceFlag was created successfully
-if echo "$TRACE_FLAG_RESULT" | jq -e '.result.Id' >/dev/null; then
+if echo "$TRACE_FLAG_RESULT" | jq -e '.result.id' >/dev/null; then
     echo "TraceFlag created successfully for user: $SELECTED_USER with DebugLevel: $SELECTED_DEBUG_LEVEL"
 else
     echo "Failed to create TraceFlag. Response: $TRACE_FLAG_RESULT"
