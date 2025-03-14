@@ -39,7 +39,7 @@ then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   # On Intel macOS, this script installs to /usr/local only
-  eval "$(/user/local/bin/brew shellenv)"
+  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 ######################################################
