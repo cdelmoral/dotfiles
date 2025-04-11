@@ -59,3 +59,9 @@ alias sfac="$(sf autocomplete script zsh)"
 ######################################################
 
 alias gplog="git log --oneline --graph --decorate --all | fzf"
+
+######################################################
+# tmux
+######################################################
+
+alias ta="tmux attach"
