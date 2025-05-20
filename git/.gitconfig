@@ -1,0 +1,23 @@
+[user]
+	name = Carlos del Moral
+[commit]
+  gpgsign = true
+[mergetool]
+	keepBackup = false
+[diff]
+	tool = nvimdiff
+	ignoreWhitespace = true
+[alias]
+	lg = log --oneline --graph --decorate --all
+[core]
+	pager = delta
+	commentChar = ";"
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictstyle = zdiff3
+[include]
+  path = ~/.gitconfig.local
