@@ -6,3 +6,4 @@ stow --restow tmux
 stow --restow nvim
 stow --restow git
 stow --restow ghostty
+stow --restow opencode
