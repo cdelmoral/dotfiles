@@ -5,3 +5,4 @@ stow --restow zsh
 stow --restow tmux
 stow --restow nvim
 stow --restow git
+stow --restow ghostty
