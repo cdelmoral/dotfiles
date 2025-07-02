@@ -65,3 +65,9 @@ alias gplog="git log --oneline --graph --decorate --all | fzf"
 ######################################################
 
 alias ta="tmux attach"
+
+######################################################
+# Homebrew
+######################################################
+
+export HOMEBREW_NO_ENV_HINTS=true
