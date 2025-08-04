@@ -10,6 +10,7 @@
 [alias]
 	lg = log --oneline --graph --decorate --all
 [core]
+	excludesfile = ~/.gitignore_global
 	pager = delta
 	commentChar = ";"
 [interactive]
