@@ -16,7 +16,7 @@ return {
       },
       constrain_cursor = "name",
     },
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   },
   {
     "ibhagwan/fzf-lua",
