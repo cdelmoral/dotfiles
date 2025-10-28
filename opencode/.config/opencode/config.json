@@ -3,5 +3,18 @@
   "theme": "system",
   "autoupdate": true,
   "model": "anthropic/claude-sonnet-4-5",
-  "small_model": "anthropic/claude-haiku-4-5"
+  "small_model": "anthropic/claude-haiku-4-5",
+  "agent": {
+    "plan": {
+      "permission": {
+        "bash": {
+          "find *": "allow",
+          "head *": "allow",
+          "ls *": "allow",
+          "tail *": "allow",
+          "rg *": "allow"
+        }
+      }
+    }
+  }
 }
