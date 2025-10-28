@@ -2,38 +2,54 @@
 
 # Ensure an org alias is provided
 if [ -z "$1" ]; then
-    echo "Usage: $0 <salesforce_org_alias>"
+    echo "Usage: $0 <salesforce_org_alias> [username]"
     exit 1
 fi
 
 ORG_ALIAS=$1
+USERNAME=$2
 
-# Query all users in the org and store them in a variable
-USER_LIST=$(sf data query -q "SELECT Id, Name FROM User" -o "$ORG_ALIAS" --json)
+# If username is not provided, query and select a user
+if [ -z "$USERNAME" ]; then
+    # Query all users in the org and store them in a variable
+    if ! USER_LIST=$(sf data query -q "SELECT Id, Name FROM User" -o "$ORG_ALIAS" --json); then
+        echo "Failed to retrieve users. Check your Salesforce CLI connection."
+        exit 1
+    fi
 
-# Check for errors in the query
-if [ $? -ne 0 ]; then
-    echo "Failed to retrieve users. Check your Salesforce CLI connection."
-    exit 1
+    # Use fzf to select a user
+    SELECTED_USER=$(echo "$USER_LIST" | jq -r '.result.records[] | "\(.Id) \(.Name)"' | fzf)
+
+    # Check if a user was selected
+    if [ -z "$SELECTED_USER" ]; then
+        echo "No user selected. Exiting."
+        exit 1
+    fi
+
+    # Extract User Id from the selected entry
+    USER_ID=$(echo "$SELECTED_USER" | awk '{print $1}')
+else
+    # Username was provided as argument, query for the user
+    if ! USER_QUERY=$(sf data query -q "SELECT Id, Name FROM User WHERE Username = '$USERNAME'" -o "$ORG_ALIAS" --json); then
+        echo "Failed to retrieve user with username: $USERNAME. Check your Salesforce CLI connection."
+        exit 1
+    fi
+
+    # Extract user information
+    USER_ID=$(echo "$USER_QUERY" | jq -r '.result.records[0].Id // empty')
+    USER_NAME=$(echo "$USER_QUERY" | jq -r '.result.records[0].Name // empty')
+
+    # Check if user was found
+    if [ -z "$USER_ID" ]; then
+        echo "No user found with name: $USERNAME"
+        exit 1
+    fi
+
+    SELECTED_USER="$USER_ID $USER_NAME"
 fi
-
-# Use fzf to select a user
-SELECTED_USER=$(echo "$USER_LIST" | jq -r '.result.records[] | "\(.Id) \(.Name)"' | fzf)
-
-# Check if a user was selected
-if [ -z "$SELECTED_USER" ]; then
-    echo "No user selected. Exiting."
-    exit 1
-fi
-
-# Extract User Id from the selected entry
-USER_ID=$(echo "$SELECTED_USER" | awk '{print $1}')
 
 # Query all DebugLevel records
-DEBUG_LEVEL_LIST=$(sf data query -q "SELECT Id, DeveloperName FROM DebugLevel" -o "$ORG_ALIAS" --json --use-tooling-api)
-
-# Check for errors in the query
-if [ $? -ne 0 ]; then
+if ! DEBUG_LEVEL_LIST=$(sf data query -q "SELECT Id, DeveloperName FROM DebugLevel" -o "$ORG_ALIAS" --json --use-tooling-api); then
     echo "Failed to retrieve DebugLevels. Check your Salesforce CLI connection."
     exit 1
 fi
