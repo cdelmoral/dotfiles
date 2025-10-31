@@ -16,5 +16,17 @@
         }
       }
     }
+  },
+  "mcp": {
+    "atlassian-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.atlassian.com/v1/sse"
+      ],
+      "enabled": true
+    }
   }
 }
