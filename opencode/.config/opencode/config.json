@@ -12,7 +12,8 @@
           "head *": "allow",
           "ls *": "allow",
           "tail *": "allow",
-          "rg *": "allow"
+          "rg *": "allow",
+          "*": "ask"
         }
       }
     }
