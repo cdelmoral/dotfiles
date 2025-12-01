@@ -31,6 +31,9 @@ alias psx="ps -ef"
 alias catp="cat ${HOME}/.zshrc"
 bindkey -s ^f "tmux-sessionizer\n"
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 ######################################################
 # fnm
 ######################################################
