@@ -23,6 +23,37 @@ Use the GitHub CLI for:
 - **Releases**: Manage releases (`gh release`)
 - **Gists**: Create and manage gists (`gh gist`)
 
+## Code Review Workflow
+
+When reviewing pull requests:
+
+### Fetch PR Information
+Use JSON output to get PR metadata:
+```bash
+gh pr view <number> --json baseRefName,headRefName,title,body,author,additions,deletions,changedFiles
+```
+
+### Analyze Changes
+**Prefer `gh pr diff`** for most reviews as it's faster and doesn't require checkout:
+```bash
+gh pr diff <number>
+```
+
+For large PRs where granular analysis is needed, checkout locally and use git:
+```bash
+gh pr checkout <number>
+git diff <base>...<head>
+git diff --stat <base>...<head>  # Overview of changes
+git diff <base>...<head> -- specific/file.js  # Specific file review
+```
+
+### Manage Reviews
+Create review comments on specific lines or files:
+```bash
+gh pr comment <number> --body "Review feedback"
+gh pr review <number> --comment --body "General review comments"
+```
+
 ## Common Commands
 
 ```bash
@@ -36,7 +67,11 @@ gh issue comment <number> --body "Comment"
 gh pr list
 gh pr create --title "Title" --body "Description"
 gh pr view <number>
-gh pr checkout <number>
+gh pr view <number> --json baseRefName,headRefName,title,body  # Structured data
+gh pr diff <number>  # View PR changes
+gh pr checkout <number>  # Checkout PR branch locally
+gh pr comment <number> --body "Comment"  # Add general comment
+gh pr review <number> --comment --body "Review feedback"  # Submit review
 gh pr review <number> --approve
 gh pr merge <number>
 
@@ -55,6 +90,16 @@ gh search code <query>
 gh search issues <query>
 gh search prs <query>
 ```
+
+## PR Review Best Practices
+
+When conducting code reviews:
+- Prefer `gh pr diff` for efficiency unless the PR is very large
+- For large PRs, checkout locally and review files incrementally
+- Provide constructive, specific feedback
+- Reference file:line numbers when pointing out issues
+- Balance criticism with recognition of good patterns
+- Keep feedback flexible in structure - adapt to the PR context
 
 ## Best Practices
 
