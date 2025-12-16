@@ -32,4 +32,4 @@ Follow these guidelines:
 
 5. **Create the commit**: Use the appropriate git commit command with your crafted message.
 
-After creating the commit, confirm it was successful by showing the commit details.
+6. **Verify the commit**: After creating the commit, ALWAYS run `git log -1` to display the complete commit details for verification.
