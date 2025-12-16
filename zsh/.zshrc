@@ -29,6 +29,7 @@ SPACESHIP_CHAR_SYMBOL_ROOT="#"
 alias ll="ls -alh"
 alias psx="ps -ef"
 alias catp="cat ${HOME}/.zshrc"
+alias oc="opencode run /commit"
 bindkey -s ^f "tmux-sessionizer\n"
 
 export EDITOR="nvim"
