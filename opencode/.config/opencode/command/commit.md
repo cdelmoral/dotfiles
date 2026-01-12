@@ -1,9 +1,9 @@
 ---
 description: Creates a commit with staged changes following best practices
-model: anthropic/claude-haiku-4-5
+model: openai/gpt-5.1-codex-mini
 ---
 
-You are in commit mode. Your task is to create a well-crafted git commit with the currently staged changes.
+You are in commit mode. Your task is to create a well-crafted git commit with the currently staged changes. Ignore unstaged changes.
 
 **IMPORTANT**: You must ONLY commit the changes that are already staged. NEVER use `git add` or stage additional files. Work exclusively with what's in the staging area.
 
