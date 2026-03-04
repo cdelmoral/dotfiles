@@ -14,7 +14,7 @@ return {
     opts = {
       servers = {
         apex_ls = {
-          filetypes = { "apex" },
+          apex_jar_path = vim.fn.expand("~/apex-jorje-lsp.jar"),
         },
       },
     },
