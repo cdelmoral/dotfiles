@@ -4,6 +4,8 @@ else
   export HOMEBREW_PREFIX="/usr/local"
 fi
 
+export JAVA_HOME="$HOME/.java/home"
+
 typeset -U path
 path=("${(@ps/:/)PATH}")
 
@@ -14,6 +16,7 @@ path=(
   "$HOME/go/bin"
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
+  "$JAVA_HOME/bin"
   $path
 )
 
