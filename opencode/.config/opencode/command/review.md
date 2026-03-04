@@ -8,10 +8,12 @@ agent: github
 Review GitHub pull request #$1
 
 Focus on:
+
 - Code quality and best practices
 - Potential bugs and edge cases
 - Performance implications
 - Security considerations
+- Pull request comments (read to check what’s addressed and shared context)
 
 Ignore changes to package-lock.json files.
 
