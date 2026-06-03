@@ -82,8 +82,6 @@ export HOMEBREW_NO_ENV_HINTS=true
 
 export ZK_NOTEBOOK_DIR="$HOME/notes"
 
-# Bun global binaries
-export PATH="$HOME/.bun/bin:$PATH"
 ######################################################
 # claude
 ######################################################

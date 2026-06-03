@@ -17,6 +17,7 @@ path=(
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   "$JAVA_HOME/bin"
+  "$HOME/.bun/bin"
   $path
 )
 
