@@ -84,3 +84,9 @@ export ZK_NOTEBOOK_DIR="$HOME/notes"
 
 # Bun global binaries
 export PATH="$HOME/.bun/bin:$PATH"
+######################################################
+# claude
+######################################################
+
+alias cconfig="nvim $HOME/Library/Application\ Support/Claude/claude_desktop_config.json"
+

@@ -7,3 +7,4 @@ stow --restow nvim
 stow --restow git
 stow --restow ghostty
 stow --restow opencode
+stow --restow claude
