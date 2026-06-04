@@ -56,7 +56,7 @@ alias sfac="$(sf autocomplete script zsh)"
 # fzf
 ######################################################
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 ######################################################
 # git
