@@ -4,6 +4,9 @@
   gpgsign = true
 [mergetool]
 	keepBackup = false
+	prompt = false
+[mergetool "diffview"]
+	cmd = nvim -c \"DiffviewOpen\"
 [diff]
 	tool = nvimdiff
 	ignoreWhitespace = true
@@ -20,5 +23,6 @@
 	line-numbers = true
 [merge]
 	conflictstyle = zdiff3
+	tool = diffview
 [include]
   path = ~/.gitconfig.local
