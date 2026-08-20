@@ -7,3 +7,5 @@ vim.filetype.add({
     trigger = "apex",
   },
 })
+
+vim.g.lazyvim_prettier_needs_config = true
